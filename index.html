@@ -249,7 +249,7 @@ function typeEffect() {
 typeEffect();
 
 /* Countdown (China Time) */
-const targetDate = new Date("December 24, 2025 00:00:00 GMT+0800").getTime();
+const targetDate = new Date(new Date().getTime() + 5000); // 5 seconds from now
 const countdownEl = document.getElementById("countdown");
 
 const interval = setInterval(() => {
@@ -390,4 +390,5 @@ function triggerConfetti(duration) {
 
 </body>
 </html>
+
 
