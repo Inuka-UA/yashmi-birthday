@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy 22nd Birthday Yashmi 💙</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to bottom, #e6f2ff, #ffffff);
+        text-align: center;
+        cursor: none;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 30px;
+    }
+
+    h1 {
+        color: #2b6cb0;
+        font-size: 2.8em;
+    }
+
+    h2 {
+        color: #4a90e2;
+        font-weight: 400;
+    }
+
+    img {
+        width: 250px;
+        border-radius: 20px;
+        margin-top: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .letter {
+        margin-top: 30px;
+        font-size: 1.1em;
+        line-height: 1.8;
+        color: #333;
+    }
+
+    .code-box {
+        background: #0f172a;
+        color: #e5e7eb;
+        text-align: left;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 30px;
+        font-family: monospace;
+    }
+
+    .countdown {
+        font-size: 1.8em;
+        color: #1e40af;
+        margin-top: 30px;
+        font-weight: 600;
+    }
+
+    footer {
+        margin-top: 40px;
+        color: #555;
+    }
+
+    /* Heart Cursor */
+    .heart {
+        position: fixed;
+        width: 15px;
+        height: 15px;
+        background: red;
+        transform: rotate(45deg);
+        pointer-events: none;
+        animation: fade 1s linear forwards;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: "";
+        width: 15px;
+        height: 15px;
+        background: red;
+        border-radius: 50%;
+        position: absolute;
+    }
+
+    .heart::before {
+        top: -7px;
+        left: 0;
+    }
+
+    .heart::after {
+        left: -7px;
+        top: 0;
+    }
+
+    @keyframes fade {
+        to {
+            opacity: 0;
+            transform: translateY(-20px) rotate(45deg);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4c4b8e95c1.mp3?filename=soft-piano-ambient-11157.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+    <h1>Happy 22nd Birthday 🎂</h1>
+    <h2>My Beautiful Future Doctor, Yashmi 💙</h2>
+
+    <img src="yashmi.png" alt="Yashmi">
+
+    <div class="letter">
+        <p>
+            Today, the world became brighter 22 years ago.
+        </p>
+        <p>
+            Watching you chase your MBBS dream at Tianjin Medical University
+            fills my heart with pride. Every long study night, every sacrifice,
+            every step you take — I see your strength and determination.
+        </p>
+        <p>
+            Even though Sri Lanka and China are far apart,
+            my love reaches Tianjin before midnight.
+            Distance has never weakened what I feel for you.
+        </p>
+        <p>
+            On your 22nd birthday, I wish you great success,
+            strong health, endless confidence, and the strength
+            to become the incredible doctor the world is waiting for.
+        </p>
+        <p>
+            Always remember — you are deeply loved, endlessly supported,
+            and never alone.
+        </p>
+    </div>
+
+    <div class="code-box">
+<pre>
+if (distance > 0) {
+    love++;
+}
+
+while (you_chase_your_dreams) {
+    I_will_support_you = true;
+}
+
+return "Forever Yours ❤️";
+</pre>
+    </div>
+
+    <div class="countdown" id="countdown"></div>
+
+    <footer>
+        Made with 💙 by Inuka
+    </footer>
+</div>
+
+<script>
+    // Countdown Timer (China Time - Tianjin)
+    const targetDate = new Date("December 24, 2025 00:00:00 GMT+0800").getTime();
+
+    setInterval(() => {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+
+        if (diff < 0) {
+            document.getElementById("countdown").innerHTML = "🎉 Happy Birthday Yashmi 🎉";
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById("countdown").innerHTML =
+            `Countdown to your special moment 💙<br>
+             ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+
+    // Heart Cursor Effect
+    document.addEventListener("mousemove", function(e) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.style.left = e.clientX + "px";
+        heart.style.top = e.clientY + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 1000);
+    });
+</script>
+
+</body>
+</html>

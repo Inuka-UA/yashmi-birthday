@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Yashmi 💙</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #e6f2ff, #ffffff);
+    text-align: center;
+    overflow-x: hidden;
+    cursor: none;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 30px;
+}
+
+h1 {
+    color: #1e40af;
+    font-size: 2.8em;
+}
+
+h2 {
+    color: #3b82f6;
+    font-weight: 400;
+}
+
+img {
+    width: 260px;
+    border-radius: 22px;
+    margin-top: 25px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+.letter {
+    margin-top: 35px;
+    font-size: 1.1em;
+    line-height: 1.9;
+    color: #333;
+}
+
+.code-box {
+    background: #020617;
+    color: #e5e7eb;
+    text-align: left;
+    padding: 22px;
+    border-radius: 12px;
+    margin-top: 35px;
+    font-family: monospace;
+}
+
+.countdown {
+    font-size: 1.9em;
+    color: #1d4ed8;
+    margin-top: 35px;
+    font-weight: 600;
+}
+
+footer {
+    margin-top: 45px;
+    color: #555;
+}
+
+/* Typing effect */
+.typing {
+    border-right: 2px solid #3b82f6;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: blink 0.8s infinite;
+}
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Heart Cursor */
+.heart {
+    position: fixed;
+    width: 14px;
+    height: 14px;
+    background: red;
+    transform: rotate(45deg);
+    pointer-events: none;
+    animation: fade 1s linear forwards;
+}
+.heart::before,
+.heart::after {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+}
+.heart::before { top: -7px; left: 0; }
+.heart::after { left: -7px; top: 0; }
+
+@keyframes fade {
+    to {
+        opacity: 0;
+        transform: translateY(-25px) rotate(45deg);
+    }
+}
+
+/* Falling Kisses */
+.kiss {
+    position: fixed;
+    top: -30px;
+    font-size: 22px;
+    animation: fall linear forwards;
+}
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+/* Tap message */
+#tapMsg {
+    position: fixed;
+    bottom: 15px;
+    width: 100%;
+    color: #1e40af;
+    font-weight: 500;
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+    <h1>Happy 22nd Birthday 🎂</h1>
+    <h2 class="typing" id="typingText"></h2>
+
+    <img src="yashmi.png" alt="Yashmi">
+
+    <div class="letter">
+        <p>Today, the world became brighter 22 years ago.</p>
+
+        <p>
+            Watching you chase your MBBS dream at Tianjin Medical University
+            fills my heart with pride. Every long night, every sacrifice —
+            I see your strength and dedication.
+        </p>
+
+        <p>
+            Even though Sri Lanka and China are far apart,
+            my love reaches Tianjin before midnight.
+        </p>
+
+        <p>
+            On your 22nd birthday, I wish you great success,
+            strong health, endless confidence,
+            and a future where you become an incredible doctor.
+        </p>
+
+        <p>
+            Always remember — you are deeply loved,
+            endlessly supported, and never alone.
+        </p>
+    </div>
+
+    <div class="code-box">
+<pre>
+if (distance > 0) {
+    love++;
+}
+
+while (you_chase_your_dreams) {
+    I_will_support_you = true;
+}
+
+return "Forever Yours ❤️";
+</pre>
+    </div>
+
+    <div class="countdown" id="countdown"></div>
+
+    <footer>Made with 💙 by Inuka</footer>
+</div>
+
+<div id="tapMsg">Tap anywhere 💙</div>
+
+<script>
+/* Typing Name */
+const text = "My Beautiful Future Doctor, Yashmi 💙";
+let i = 0;
+function typeEffect() {
+    if (i < text.length) {
+        document.getElementById("typingText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 80);
+    }
+}
+typeEffect();
+
+/* Countdown (China Time) */
+const targetDate = new Date("December 24, 2025 00:00:00 GMT+0800").getTime();
+setInterval(() => {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    if (diff < 0) {
+        document.getElementById("countdown").innerHTML = "🎉 Happy Birthday Yashmi 🎉";
+        return;
+    }
+
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff / (1000*60*60)) % 24);
+    const m = Math.floor((diff / (1000*60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("countdown").innerHTML =
+        `Countdown to your moment 💙<br>${d}d ${h}h ${m}m ${s}s`;
+}, 1000);
+
+/* Heart Cursor */
+document.addEventListener("mousemove", e => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = e.clientX + "px";
+    heart.style.top = e.clientY + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 1000);
+});
+
+/* Falling Kisses */
+setInterval(() => {
+    const kiss = document.createElement("div");
+    kiss.className = "kiss";
+    kiss.innerHTML = "💋";
+    kiss.style.left = Math.random() * window.innerWidth + "px";
+    kiss.style.animationDuration = (4 + Math.random() * 3) + "s";
+    document.body.appendChild(kiss);
+    setTimeout(() => kiss.remove(), 7000);
+}, 500);
+
+/* Music Autoplay Fallback */
+const music = document.getElementById("bgMusic");
+music.play().catch(() => {
+    document.getElementById("tapMsg").style.display = "block";
+    document.body.addEventListener("click", () => {
+        music.play();
+        document.getElementById("tapMsg").style.display = "none";
+    }, { once: true });
+});
+</script>
+
+</body>
+</html>
+
